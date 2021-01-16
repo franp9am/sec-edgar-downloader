@@ -157,4 +157,4 @@ class Downloader:
             self.download_folder, ticker_or_cik, filing_type, filings_to_fetch
         )
 
-        return len(filings_to_fetch)
+        return filings_to_fetch
