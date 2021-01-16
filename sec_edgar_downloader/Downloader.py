@@ -4,8 +4,8 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from ._constants import SUPPORTED_FILINGS
-from ._utils import download_filings, get_filing_urls_to_download, validate_date_format
+from sec_edgar_downloader._constants import SUPPORTED_FILINGS
+from sec_edgar_downloader._utils import download_filings, get_filing_urls_to_download, validate_date_format
 
 
 class Downloader:
@@ -157,4 +157,5 @@ class Downloader:
             self.download_folder, ticker_or_cik, filing_type, filings_to_fetch
         )
 
-        return filings_to_fetch
+        return [filing._asdict() for filing in filings_to_fetch]
+
