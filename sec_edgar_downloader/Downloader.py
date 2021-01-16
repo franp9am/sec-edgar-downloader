@@ -157,5 +157,9 @@ class Downloader:
             self.download_folder, ticker_or_cik, filing_type, filings_to_fetch
         )
 
-        return [filing._asdict() for filing in filings_to_fetch]
-
+        return [{
+            "company_id": ticker_or_cik,
+            "filing_type": filing_type,
+            "file_name": filing.filename,
+            "url": filing.url
+            } for filing in filings_to_fetch]
