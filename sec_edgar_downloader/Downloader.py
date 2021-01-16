@@ -52,6 +52,7 @@ class Downloader:
         after_date=None,
         before_date=None,
         include_amends=False,
+        store_files_to_disc=True
     ):
         """Downloads filing documents and saves them to disk.
 
@@ -153,9 +154,10 @@ class Downloader:
             include_amends,
         )
 
-        download_filings(
-            self.download_folder, ticker_or_cik, filing_type, filings_to_fetch
-        )
+        if store_files_to_disc:
+            download_filings(
+                self.download_folder, ticker_or_cik, filing_type, filings_to_fetch
+            )
 
         return [{
             "company_id": ticker_or_cik,

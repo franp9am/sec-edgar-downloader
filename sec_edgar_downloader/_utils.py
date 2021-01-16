@@ -9,9 +9,11 @@ from urllib.parse import urlencode
 import requests
 from lxml import etree
 
-from ._constants import SEC_EDGAR_BASE_URL, W3_NAMESPACE
+from sec_edgar_downloader._constants import SEC_EDGAR_BASE_URL, W3_NAMESPACE
 
 FilingMetadata = namedtuple("FilingMetadata", ["filename", "url"])
+
+fm = FilingMetadata(filename="asd", url="https:www.cz")
 
 
 def validate_date_format(date_str):
